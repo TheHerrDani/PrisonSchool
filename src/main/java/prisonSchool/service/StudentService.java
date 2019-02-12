@@ -22,8 +22,7 @@ public class StudentService implements StudentServiceInterface {
     }
 
     @Override
-    public String createStudent(Student student) {
-       studentRepository.save(student);
-       return String.format("Our application save a student with id: %d name: %s ", student.getStudentId(), student.getName());
+    public Student createStudent(Student student) {
+        return studentRepository.save(student);
     }
 }

@@ -9,18 +9,17 @@ import prisonSchool.repository.entity.Student;
 @RequestMapping("/Student")
 public class StudentController {
     @Autowired
-     private StudentServiceInterface studentService;
-
-    @PostMapping("/PostNewStudent")
-    public @ResponseBody
-    String getStudentById(@RequestParam String studentName) {
-        //todo new student change to model layer student
-        return studentService.createStudent(new Student(studentName));
-    }
+    private StudentServiceInterface studentService;
 
     @GetMapping("/GetStudentById")
-    public @ResponseBody
-    Student getStudentById(@RequestParam int studentId) {
+    public Student getStudentById(@RequestParam int studentId) {
+        //todo new student change to model layer student
         return studentService.getStudentById(studentId);
+    }
+
+    @PostMapping("/AddNewStudent")
+    public String addNewStudent(@RequestParam String studentName) {
+        Student student = studentService.createStudent(new Student(studentName));
+        return String.format("Our application save a student with id: %d name: %s ", student.getStudentId(), student.getName());
     }
 }

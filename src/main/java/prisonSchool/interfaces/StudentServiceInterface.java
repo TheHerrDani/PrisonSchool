@@ -5,5 +5,5 @@ import prisonSchool.repository.entity.Student;
 public interface StudentServiceInterface {
     Student getStudentById(int studentId);
 
-    String createStudent(Student student);
+    Student createStudent(Student student);
 }
