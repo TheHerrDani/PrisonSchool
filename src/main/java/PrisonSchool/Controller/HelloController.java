@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/Hello")
 public class HelloController {
 
-    @CrossOrigin()
+    @CrossOrigin
     @GetMapping("/Main")
     public String index() {
         return "\"We all worship dai kami sama\"";
     }
-
+    //kommenteltem
 }
