@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer productId;
+    private Integer studentId;
 
     @Length(min = 1)
     private String name;
@@ -20,13 +20,8 @@ public class Student {
         this.name = name;
     }
 
-
-    public Integer getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Integer productId) {
-        this.productId = productId;
+    public Integer getStudentId() {
+        return studentId;
     }
 
     public String getName() {

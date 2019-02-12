@@ -3,7 +3,7 @@ package prisonSchool.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import prisonSchool.repository.entity.Student;
-import prisonSchool.service.StudentService;
+import prisonSchool.interfaces.StudentService;
 
 @RestController
 @RequestMapping("/Student")
