@@ -1,4 +1,4 @@
-package PrisonSchool.Controller;
+package prisonSchool.controller;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

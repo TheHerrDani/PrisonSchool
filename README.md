@@ -1,3 +1,3 @@
-Project PrisonSchool
+Project prisonSchool
 
 Initial Commit!

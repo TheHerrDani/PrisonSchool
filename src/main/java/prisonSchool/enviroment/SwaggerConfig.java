@@ -1,4 +1,4 @@
-package PrisonSchool.enviroment;
+package prisonSchool.enviroment;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

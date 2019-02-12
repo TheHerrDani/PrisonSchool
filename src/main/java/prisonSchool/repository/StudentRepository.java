@@ -1,7 +1,7 @@
 
-package PrisonSchool.Repository;
+package prisonSchool.repository;
 
-import PrisonSchool.Repository.entity.Student;
+import prisonSchool.repository.entity.Student;
 import org.springframework.data.repository.CrudRepository;
 
 public interface StudentRepository extends CrudRepository<Student, Integer> {
