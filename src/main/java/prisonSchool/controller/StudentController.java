@@ -9,24 +9,7 @@ import prisonSchool.repository.entity.Student;
 @RequestMapping("/Student")
 public class StudentController {
     @Autowired
-<<<<<<< HEAD
-    private StudentService studentService;
-
-<<<<<<< HEAD:src/main/java/prisonSchool/controller/HelloController.java
-    @CrossOrigin
-=======
->>>>>>> HelloController to StudentController:src/main/java/prisonSchool/controller/StudentController.java
-    @GetMapping("/Main")
-    public String index() {
-        return "\"We all worship dai kami sama\"";
-    }
-<<<<<<< HEAD:src/main/java/prisonSchool/controller/HelloController.java
-    //kommenteltem
-}
-=======
-=======
-    private StudentServiceInterface studentService;
->>>>>>> Rename interfaces and implementation
+     private StudentServiceInterface studentService;
 
     @PostMapping("/PostNewStudent")
     public @ResponseBody
@@ -41,4 +24,3 @@ public class StudentController {
         return studentService.getStudentById(studentId);
     }
 }
->>>>>>> HelloController to StudentController:src/main/java/prisonSchool/controller/StudentController.java
