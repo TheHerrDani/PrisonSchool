@@ -1,11 +1,13 @@
 package prisonSchool.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import prisonSchool.repository.StudentRepository;
 import prisonSchool.repository.entity.Student;
 
 import java.util.Optional;
 
+@Service
 public class StudentServiceImplementation implements StudentService {
 
     @Autowired

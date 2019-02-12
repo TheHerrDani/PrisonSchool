@@ -26,8 +26,8 @@ public class StudentController {
 
     @PostMapping("/PostNewStudent")
     public @ResponseBody
-    String getStudentById(@RequestParam Student student) {
-        return studentService.createStudent(student);
+    String getStudentById(@RequestParam String studentName) {
+        return studentService.createStudent(new Student(studentName));
     }
 
     @GetMapping("/GetStudentById")

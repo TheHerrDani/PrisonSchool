@@ -13,6 +13,14 @@ public class Student {
     @Length(min = 1)
     private String name;
 
+    public Student() {
+    }
+
+    public Student(@Length(min = 1) String name) {
+        this.name = name;
+    }
+
+
     public Integer getProductId() {
         return productId;
     }
