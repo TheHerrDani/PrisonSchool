@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/Hello")
 public class HelloController {
 
-    @CrossOrigin(origins = "http://localhost:8080")
+    @CrossOrigin()
     @GetMapping("/Main")
     public String index() {
-        return "We all worship dai kami sama";
+        return "\"We all worship dai kami sama\"";
     }
 
 }
