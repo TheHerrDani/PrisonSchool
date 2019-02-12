@@ -1,13 +1,15 @@
 package prisonSchool.controller;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import prisonSchool.repository.entity.Student;
+import prisonSchool.service.StudentService;
 
 @RestController
 @RequestMapping("/Student")
 public class StudentController {
+    @Autowired
+    private StudentService studentService;
 
 <<<<<<< HEAD:src/main/java/prisonSchool/controller/HelloController.java
     @CrossOrigin
@@ -22,9 +24,16 @@ public class StudentController {
 }
 =======
 
-    @GetMapping("/getStudentById")
-    public String getStudentById() {
-        return "We all worship dai kami sama";
+    @PostMapping("/PostNewStudent")
+    public @ResponseBody
+    String getStudentById(@RequestParam Student student) {
+        return studentService.createStudent(student);
+    }
+
+    @GetMapping("/GetStudentById")
+    public @ResponseBody
+    Student getStudentById(@RequestParam int studentId) {
+        return studentService.getStudentById(studentId);
     }
 }
 >>>>>>> HelloController to StudentController:src/main/java/prisonSchool/controller/StudentController.java
