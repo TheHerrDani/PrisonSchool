@@ -2,13 +2,14 @@ package prisonSchool.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import prisonSchool.interfaces.StudentServiceInterface;
 import prisonSchool.repository.entity.Student;
-import prisonSchool.interfaces.StudentService;
 
 @RestController
 @RequestMapping("/Student")
 public class StudentController {
     @Autowired
+<<<<<<< HEAD
     private StudentService studentService;
 
 <<<<<<< HEAD:src/main/java/prisonSchool/controller/HelloController.java
@@ -23,10 +24,14 @@ public class StudentController {
     //kommenteltem
 }
 =======
+=======
+    private StudentServiceInterface studentService;
+>>>>>>> Rename interfaces and implementation
 
     @PostMapping("/PostNewStudent")
     public @ResponseBody
     String getStudentById(@RequestParam String studentName) {
+        //todo new student change to model layer student
         return studentService.createStudent(new Student(studentName));
     }
 

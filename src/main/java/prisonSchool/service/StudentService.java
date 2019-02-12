@@ -2,16 +2,17 @@ package prisonSchool.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import prisonSchool.interfaces.StudentRepository;
+import prisonSchool.interfaces.StudentRepositoryInterface;
+import prisonSchool.interfaces.StudentServiceInterface;
 import prisonSchool.repository.entity.Student;
 
 import java.util.Optional;
 
 @Service
-public class StudentService implements prisonSchool.interfaces.StudentService {
+public class StudentService implements StudentServiceInterface {
 
     @Autowired
-    private StudentRepository studentRepository;
+    private StudentRepositoryInterface studentRepository;
 
     @Override
     public Student getStudentById(int studentId) {
