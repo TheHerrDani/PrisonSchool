@@ -23,10 +23,4 @@ public class StudentControllerAdvice {
         final String message = Optional.of(exception.getMessage()).orElse(exception.getClass().getSimpleName());
         return new ResponseEntity<>(new VndErrors(logRef, message), httpStatus);
     }
-
-    /*@ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<VndErrors> assertionException(final IllegalArgumentException e) {
-        return error(e, HttpStatus.NOT_FOUND, e.getLocalizedMessage());
-    }*/
-
 }

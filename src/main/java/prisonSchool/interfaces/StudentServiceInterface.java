@@ -1,13 +1,14 @@
 package prisonSchool.interfaces;
 
-import prisonSchool.repository.entity.Student;
+import prisonSchool.domains.StudentDomain;
+import prisonSchool.entities.StudentEntity;
 
 public interface StudentServiceInterface {
-    Student getStudentById(int studentId);
+    StudentDomain getStudentById(int studentId);
 
-    Student createStudent(Student student);
+    StudentDomain createStudent(StudentDomain studentDomain);
 
-    Student updateStudent(int studentId, String studentName);
+    StudentDomain updateStudent(StudentDomain studentDomain);
 
     void deleteStudent(int studentId);
 }

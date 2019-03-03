@@ -1,7 +1,5 @@
-package prisonSchool.repository.entity;
+package prisonSchool.entities;
 
-
-import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.validator.constraints.Length;
 
@@ -10,7 +8,7 @@ import java.time.LocalDateTime;
 
 
 @Entity
-public class Student {
+public class StudentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer studentId;
@@ -21,10 +19,10 @@ public class Student {
     @UpdateTimestamp
     private LocalDateTime dateOfModification;
 
-    public Student() {
+    public StudentEntity() {
     }
 
-    public Student(@Length(min = 1) String name) {
+    public StudentEntity(@Length(min = 1) String name) {
         this.name = name;
     }
 
@@ -36,12 +34,20 @@ public class Student {
         return name;
     }
 
+    public LocalDateTime getDateOfModification() {
+        return dateOfModification;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
 
-    public LocalDateTime getDateOfModification() {
-        return dateOfModification;
+
+    public void setStudentId(Integer studentId) {
+        this.studentId = studentId;
     }
-    
+
+    public void setDateOfModification(LocalDateTime dateOfModification) {
+        this.dateOfModification = dateOfModification;
+    }
 }

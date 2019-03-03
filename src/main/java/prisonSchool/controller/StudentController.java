@@ -2,32 +2,32 @@ package prisonSchool.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
+import prisonSchool.domains.StudentDomain;
 import prisonSchool.interfaces.StudentServiceInterface;
-import prisonSchool.repository.entity.Student;
 
 @RestController
-@RequestMapping("/Student")
+@RequestMapping("/StudentEntity")
 public class StudentController {
     @Autowired
     private StudentServiceInterface studentService;
 
     @GetMapping("/GetStudentById")
-    public Student getStudentById(@RequestParam int studentId) {
+    public StudentDomain getStudentById(@RequestParam int studentId) {
         //todo new student change to model layer student
-        return studentService.getStudentById(studentId);
+        StudentDomain studentDomain =  studentService.getStudentById(studentId);
+        return studentDomain;
     }
 
     @PostMapping("/AddNewStudent")
-    public String addNewStudent(@RequestParam String studentName) {
-        Student student = studentService.createStudent(new Student(studentName));
-        return String.format("Our application save a student with id: %d name: %s ", student.getStudentId(), student.getName());
+    public String addNewStudent(@RequestBody StudentDomain student) {
+        StudentDomain studentDomain = studentService.createStudent(student);
+        return String.format("Our application save a studentEntity with id: %d name: %s ", studentDomain.getStudentId(), studentDomain.getName());
     }
 
     @PutMapping("/updateStudent")
-    public Student updateStudent(@RequestParam int studentId, @RequestBody String studentName){
-        //throw new ResponseStatusException(HttpStatus.NOT_FOUND, "nem találom");
-        return studentService.updateStudent(studentId, studentName);
+    public StudentDomain updateStudent(@RequestBody StudentDomain student){
+        //throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Cannot found");
+        return studentService.updateStudent(student);
     }
 
     @DeleteMapping("/deleteStudent")
