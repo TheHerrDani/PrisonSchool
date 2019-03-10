@@ -24,13 +24,13 @@ public class StudentController {
         return String.format("Our application save a studentEntity with id: %d name: %s ", studentDomain.getStudentId(), studentDomain.getName());
     }
 
-    @PutMapping("/updateStudent")
+    @PutMapping("/UpdateStudent")
     public StudentDomain updateStudent(@RequestBody StudentDomain student){
         //throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Cannot found");
         return studentService.updateStudent(student);
     }
 
-    @DeleteMapping("/deleteStudent")
+    @DeleteMapping("/DeleteStudent")
     public void deleteStudent(@RequestParam int studentId){
         studentService.deleteStudent(studentId);
     }
