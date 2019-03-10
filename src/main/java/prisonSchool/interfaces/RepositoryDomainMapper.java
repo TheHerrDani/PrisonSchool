@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
  * U Domain
  */
 
-public class RepositoryDomainGenericMapper<T, U> {
+public class RepositoryDomainMapper<T, U> {
     private Class<T> entityType;
     private Class<U> domainType;
     private final String getRegex = "get[\\w_$]+";
@@ -26,7 +26,7 @@ public class RepositoryDomainGenericMapper<T, U> {
     private List<Method> entityMethods;
     private List<Method> domainMethods;
 
-    public RepositoryDomainGenericMapper(Class<T> t, Class<U> u) {
+    public RepositoryDomainMapper(Class<T> t, Class<U> u) {
         this.entityType = t;
         this.domainType = u;
         this.entityMethods = Arrays.asList(entityType.getMethods());
