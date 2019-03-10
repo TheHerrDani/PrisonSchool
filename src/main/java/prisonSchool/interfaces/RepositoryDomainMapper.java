@@ -26,14 +26,14 @@ public class RepositoryDomainGenericMapper<T, U> {
     private List<Method> entityMethods;
     private List<Method> domainMethods;
 
-    public RepositoryDomainGenericMapper(Class<U> u, Class<T> t) {
+    public RepositoryDomainGenericMapper(Class<T> t, Class<U> u) {
         this.entityType = t;
         this.domainType = u;
         this.entityMethods = Arrays.asList(entityType.getMethods());
         this.domainMethods = Arrays.asList(domainType.getMethods());
     }
 
-    U RepositoryToDomain(T entity) {
+    public U RepositoryToDomain(T entity) {
         try {
             Map<Method, Method> domainSetMethodList = domainMethods.stream()
                     .filter(method -> setPattern.matcher(method.getName()).find())
