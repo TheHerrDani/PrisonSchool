@@ -52,11 +52,39 @@ public class RepositoryDomainMapper<T, U> {
         }
     }
 
+
+    public T DomainToRepository(U domain) {
+        try {
+            Map<Method, Method> entitySetMethodList = entityMethods.stream()
+                    .filter(method -> setPattern.matcher(method.getName()).find())
+                    .collect(Collectors.toMap(method -> method, getDomainFunctions));
+            T t = entityType.getConstructor().newInstance();
+            entitySetMethodList.keySet().forEach(method -> {
+                try {
+                    method.invoke(t, entitySetMethodList.get(method).invoke(domain));
+                } catch (IllegalAccessException | InvocationTargetException e) {
+                    throw new IllegalStateException();
+                }
+            });
+            return t;
+        } catch (NoSuchMethodException | InstantiationException | InvocationTargetException | IllegalAccessException e) {
+            throw new IllegalStateException();
+        }
+    }
+
     private UnaryOperator<Method> getFunctions = (method) -> {
         String methodName = method.getName();
         return entityMethods.stream().filter(otherMethod -> {
             String entityMethodName = otherMethod.getName();
             return getPattern.matcher(entityMethodName).find() && entityMethodName.substring(3).equals(methodName.substring(3));
+        }).findFirst().orElseThrow(IllegalStateException::new);
+    };
+
+    private UnaryOperator<Method> getDomainFunctions = (method) -> {
+        String methodName = method.getName();
+        return domainMethods.stream().filter(otherMethod -> {
+            String domainMethodName = otherMethod.getName();
+            return getPattern.matcher(domainMethodName).find() && domainMethodName.substring(3).equals(methodName.substring(3));
         }).findFirst().orElseThrow(IllegalStateException::new);
     };
 }
