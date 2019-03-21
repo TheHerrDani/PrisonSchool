@@ -8,12 +8,20 @@ import prisonSchool.interfaces.StudentServiceInterface;
 @RestController
 @RequestMapping("/StudentEntity")
 public class StudentController {
-    @Autowired
+
     private StudentServiceInterface studentService;
+
+    @Autowired
+    public StudentController(StudentServiceInterface studentService) {
+        this.studentService = studentService;
+    }
 
     @GetMapping("/GetStudentById")
     public StudentDomain getStudentById(@RequestParam int studentId) {
         //todo new student change to model layer student
+        if(studentId < 1)
+            throw new IllegalArgumentException("Az ID legyen nagyobb mint 0");
+
         StudentDomain studentDomain =  studentService.getStudentById(studentId);
         return studentDomain;
     }
